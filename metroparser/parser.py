@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 __author__ = 'eduardo'
 
-import urllib2
 import re
 from HTMLParser import HTMLParser
 
@@ -76,10 +75,3 @@ class Parser(HTMLParser):
 
             self.data += (linea + '\n' + 'Apertura\t' + s1 + '\t' + s2 + '\t' + 'Estación\t' + e1 + '\t'
                           + e2 + '\t' + 'Cierre\t\n')
-
-p = Parser()
-f = urllib2.urlopen('http://www.metrosantiago.cl/guia-viajero/horarios')
-html = f.read()
-p.feed(html)
-p.write_to_file('horario.cvs')
-p.close()
