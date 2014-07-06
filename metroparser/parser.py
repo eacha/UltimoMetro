@@ -23,8 +23,9 @@ class Parser(HTMLParser):
         self.data = ''
 
     def write_to_file(self, file):
-        openfile = open(file, 'w')
-        openfile.write(self.data)
+        open_file = open(file, 'w')
+        open_file.write(self.data)
+        open_file.close()
 
     def handle_starttag(self, tag, attrs):
         if tag == 'table':
