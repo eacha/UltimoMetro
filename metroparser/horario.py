@@ -3,6 +3,7 @@ __author__ = 'eduardo'
 
 import urllib2
 from parser import Parser
+from estacion import Estacion
 
 file_extension = 'csv'
 urlToParse = [{'url': 'http://www.metrosantiago.cl/guia-viajero/horarios', 'file': 'horario'},
@@ -20,3 +21,9 @@ for urlFile in urlToParse:
 parser.close()
 
 print 'Extracción de datos exitosa'
+
+e = Estacion()
+e.extract('horario.csv')
+e.write_to_file()
+
+print 'Extraccion de las estaciones'

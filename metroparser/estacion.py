@@ -40,9 +40,3 @@ class Estacion():
             open_file.write(station + '\n')
 
         open_file.close()
-
-
-## Main ##
-e = Estacion()
-e.extract('horario.cvs')
-e.write_to_file()
