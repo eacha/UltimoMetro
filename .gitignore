@@ -57,6 +57,7 @@ metroparser/.idea/
 
 # Data
 *.csv
+*.db
 
 # Eclipse
 *target*
