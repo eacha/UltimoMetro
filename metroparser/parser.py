@@ -22,7 +22,12 @@ class Parser(HTMLParser):
         self.heading = False
         self.data = ''
 
+    def format(self):
+        self.data = re.sub(r'4a', '4A', self.data)
+        self.data = re.sub(r'linea', 'Linea ', self.data)
+
     def write_to_file(self, file):
+        self.format()
         open_file = open(file, 'w')
         open_file.write(self.data)
         open_file.close()
@@ -75,4 +80,4 @@ class Parser(HTMLParser):
             e2 = re.search(r'\#e2...html..([^\']*)', d_attrs['onclick'], flags=0).group(1)
 
             self.data += (linea + '\n' + 'Apertura\t' + s1 + '\t' + s2 + '\t' + 'Estación\t' + e1 + '\t'
-                          + e2 + '\t' + 'Cierre\t\n')
+                          + e2 + '\t' + 'Cierre\n')
