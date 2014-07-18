@@ -90,10 +90,3 @@ class AppDatabase():
 
     def close(self):
         self.conection.close()
-
-a = AppDatabase()
-a.create_database()
-a.add_lines()
-a.add_station()
-a.add_schedule(['horario.csv', 'horario_sabado.csv', 'horario_domingo.csv'])
-a.close()
