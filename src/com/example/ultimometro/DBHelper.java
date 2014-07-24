@@ -49,8 +49,52 @@ public class DBHelper {
 			Linea linea = new Linea(cursor);
 			listLinea.add(linea);
 		}
+		
 		db.close();
 		return listLinea;
+	}
+	
+	public Linea getLinea(int id) {
+		SQLiteDatabase db = this.getReadableDatabase();
+		String[] data = {""+id};
+		Cursor cursor = db.rawQuery("SELECT * FROM linea WHERE id=?", data);
+		
+		cursor.moveToFirst();
+		Linea linea = new Linea(cursor);
+		
+		db.close();
+		return linea;
+	}
+	public Estacion getFirstEstacion(Linea linea) {
+		return this.getEstacion(linea.getStart(), linea.getId());
+	}
+	
+	public Estacion getEndEstacion(Linea linea) {
+		return this.getEstacion(linea.getEnd(), linea.getId());
+	}
+	
+	public Estacion getEstacion(String name, int idLinea) {
+		SQLiteDatabase db = this.getReadableDatabase();
+		String[] data = {name, idLinea+""};
+		Cursor cursor = db.rawQuery("SELECT * FROM estacion WHERE name=? and linea=?", data);
+		
+		cursor.moveToFirst();
+		Estacion estacion =  new Estacion(cursor);
+		
+		db.close();
+		return estacion;
+	}
+	
+	public Horario getHorario(Estacion estacion, int tipo) {
+		SQLiteDatabase db = this.getReadableDatabase();
+		String[] data = {estacion.getId()+"", tipo+""};
+		Cursor cursor = db.rawQuery("SELECT * FROM horario WHERE estacion=? and type=?", data);
+		
+		cursor.moveToFirst();
+		Horario horario =  new Horario(cursor);
+		
+		db.close();
+		return horario;
 	}
 
 	/**
@@ -100,8 +144,9 @@ public class DBHelper {
 		if (!file.exists()) {
 			Log.d(TAG, "Creating Folder");
 			file.mkdirs();
+			Log.d(TAG, "Folder Created");
 		}
-		Log.d(TAG, "Folder Created");
+		
 	}
 
 }
