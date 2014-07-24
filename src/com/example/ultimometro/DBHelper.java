@@ -5,8 +5,10 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
@@ -36,7 +38,20 @@ public class DBHelper {
 	public SQLiteDatabase getWritableDatabase() {
 		File dbFile = this.createDatabase();
 		return SQLiteDatabase.openDatabase(dbFile.getPath(), null, SQLiteDatabase.OPEN_READWRITE);
-	}	
+	}
+	
+	public ArrayList<Linea> getLineas(){
+		ArrayList<Linea> listLinea = new ArrayList<Linea>();
+		SQLiteDatabase db = this.getReadableDatabase();
+		Cursor cursor = db.rawQuery("SELECT * FROM linea", null);
+		
+		while(cursor.moveToNext()){
+			Linea linea = new Linea(cursor);
+			listLinea.add(linea);
+		}
+		db.close();
+		return listLinea;
+	}
 
 	/**
 	 * Create the database from assets file

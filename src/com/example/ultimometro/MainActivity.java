@@ -1,28 +1,42 @@
 package com.example.ultimometro;
 
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
+import java.util.ArrayList;
+
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 public class MainActivity extends ActionBarActivity {
 
+	private ListView listLinea;
+	private DBHelper database;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
+//        if (savedInstanceState == null) {
+//            getSupportFragmentManager().beginTransaction()
+//                    .add(R.id.container, new PlaceholderFragment())
+//                    .commit();
+//        }
+        database = new DBHelper(this);
+        ArrayList<Linea> dataLinea =  database.getLineas(); 
+        ArrayList<String> lineas = this.lineaName(dataLinea);
+        
+        listLinea = (ListView) findViewById(R.id.listLinea);
+        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, 
+        		android.R.layout.simple_list_item_1, lineas);
+        listLinea.setAdapter(adaptador);
+        
     }
 
 
@@ -46,7 +60,18 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
+    private ArrayList<String> lineaName(ArrayList<Linea> Lineas) {
+		ArrayList<String> lista =  new ArrayList<String>();
+		
+		for (Linea  linea: Lineas) {
+			lista.add(linea.getName());
+		}
+		
+		return lista;
+		
+	}
+
+	/**
      * A placeholder fragment containing a simple view.
      */
     public static class PlaceholderFragment extends Fragment {
@@ -61,5 +86,4 @@ public class MainActivity extends ActionBarActivity {
             return rootView;
         }
     }
-
 }
