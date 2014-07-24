@@ -27,8 +27,13 @@ public class AdapterLinea extends ArrayAdapter<Linea> {
 		TextView lineaName = (TextView) item.findViewById(R.id.lineaName);
 		lineaName.setText(this.data.get(position).getName());
 		
-		return item;
+		item.setBackgroundColor(this.data.get(position).getColor());
 		
+		return item;
 	}
 
+	public ArrayList<Linea> getData() {
+		return data;
+	}
+	
 }
