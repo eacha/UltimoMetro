@@ -2,6 +2,7 @@ package com.example.ultimometro;
 
 import java.util.ArrayList;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -10,12 +11,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 public class MainActivity extends ActionBarActivity {
 
 	private ListView listLinea;
+//	private TextView texto;
 	private DBHelper database;
 	
     @Override
@@ -23,20 +26,26 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        if (savedInstanceState == null) {
-//            getSupportFragmentManager().beginTransaction()
-//                    .add(R.id.container, new PlaceholderFragment())
-//                    .commit();
-//        }
         database = new DBHelper(this);
-        ArrayList<Linea> dataLinea =  database.getLineas(); 
-        //ArrayList<String> lineas = this.lineaName(dataLinea);
-        
+        ArrayList<Linea> dataLinea =  database.getLineas();     
         listLinea = (ListView) findViewById(R.id.listLinea);
-        /*ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, 
-        		android.R.layout.simple_list_item_1, lineas);*/
+
         AdapterLinea adapter = new AdapterLinea(this, dataLinea);
-        listLinea.setAdapter(adapter);
+        listLinea.setAdapter(adapter);        
+        listLinea.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> a, View v, int position,
+					long id) {
+				int idLinea = ((Linea)a.getAdapter().getItem(position)).getId();
+				
+				Intent intent = new Intent(getApplicationContext(), EstacionActivity.class);
+				intent.putExtra("ID", ""+idLinea);
+				startActivity(intent);
+				
+			}
+        	
+		});
         
     }
 
@@ -61,16 +70,16 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private ArrayList<String> lineaName(ArrayList<Linea> Lineas) {
-		ArrayList<String> lista =  new ArrayList<String>();
-		
-		for (Linea  linea: Lineas) {
-			lista.add(linea.getName());
-		}
-		
-		return lista;
-		
-	}
+//    private ArrayList<String> lineaName(ArrayList<Linea> Lineas) {
+//		ArrayList<String> lista =  new ArrayList<String>();
+//		
+//		for (Linea  linea: Lineas) {
+//			lista.add(linea.getName());
+//		}
+//		
+//		return lista;
+//		
+//	}
 
 	/**
      * A placeholder fragment containing a simple view.
