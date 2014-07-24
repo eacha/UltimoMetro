@@ -30,12 +30,13 @@ public class MainActivity extends ActionBarActivity {
 //        }
         database = new DBHelper(this);
         ArrayList<Linea> dataLinea =  database.getLineas(); 
-        ArrayList<String> lineas = this.lineaName(dataLinea);
+        //ArrayList<String> lineas = this.lineaName(dataLinea);
         
         listLinea = (ListView) findViewById(R.id.listLinea);
-        ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, 
-        		android.R.layout.simple_list_item_1, lineas);
-        listLinea.setAdapter(adaptador);
+        /*ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, 
+        		android.R.layout.simple_list_item_1, lineas);*/
+        AdapterLinea adapter = new AdapterLinea(this, dataLinea);
+        listLinea.setAdapter(adapter);
         
     }
 
