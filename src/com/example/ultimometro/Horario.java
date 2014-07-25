@@ -14,15 +14,15 @@ public class Horario {
 	private int id;
 	private int estacion;
 	private int type;
-	private int open;
-	private int close;
-	private int first_start;
-	private int last_start;
-	private int first_end;
-	private int last_end;
+	private String open;
+	private String close;
+	private String first_start;
+	private String last_start;
+	private String first_end;
+	private String last_end;
 	
-	public Horario(int id, int estacion, int type, int open, int close,
-			int first_start, int last_start, int first_end, int last_end) {
+	public Horario(int id, int estacion, int type, String open, String close,
+			String first_start, String last_start, String first_end, String last_end) {
 		super();
 		this.id = id;
 		this.estacion = estacion;
@@ -37,8 +37,8 @@ public class Horario {
 	
 	public Horario(Cursor cursor) {
 		this(cursor.getInt(0), cursor.getInt(1), cursor.getInt(2),
-			 cursor.getInt(3), cursor.getInt(4), cursor.getInt(5),
-			 cursor.getInt(6), cursor.getInt(7), cursor.getInt(8));
+			 cursor.getString(3), cursor.getString(4), cursor.getString(5),
+			 cursor.getString(6), cursor.getString(7), cursor.getString(8));
 	}
 
 	public int getId() {
@@ -53,27 +53,27 @@ public class Horario {
 		return type;
 	}
 
-	public int getOpen() {
+	public String getOpen() {
 		return open;
 	}
 
-	public int getClose() {
+	public String getClose() {
 		return close;
 	}
 
-	public int getFirst_start() {
+	public String getFirst_start() {
 		return first_start;
 	}
 
-	public int getLast_start() {
+	public String getLast_start() {
 		return last_start;
 	}
 
-	public int getFirst_end() {
+	public String getFirst_end() {
 		return first_end;
 	}
 
-	public int getLast_end() {
+	public String getLast_end() {
 		return last_end;
 	}
 
