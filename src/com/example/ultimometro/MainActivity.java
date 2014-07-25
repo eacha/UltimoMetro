@@ -27,7 +27,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         database = new DBHelper(this);
-        ArrayList<Linea> dataLinea =  database.getLineas();     
+        ArrayList<Linea> dataLinea =  database.getArrayLineas();     
         listLinea = (ListView) findViewById(R.id.listLinea);
 
         AdapterLinea adapter = new AdapterLinea(this, dataLinea);

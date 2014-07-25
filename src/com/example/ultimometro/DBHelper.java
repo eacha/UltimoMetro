@@ -40,7 +40,7 @@ public class DBHelper {
 		return SQLiteDatabase.openDatabase(dbFile.getPath(), null, SQLiteDatabase.OPEN_READWRITE);
 	}
 	
-	public ArrayList<Linea> getLineas(){
+	public ArrayList<Linea> getArrayLineas(){
 		ArrayList<Linea> listLinea = new ArrayList<Linea>();
 		SQLiteDatabase db = this.getReadableDatabase();
 		Cursor cursor = db.rawQuery("SELECT * FROM linea", null);
@@ -95,6 +95,20 @@ public class DBHelper {
 		
 		db.close();
 		return horario;
+	}
+	
+	public ArrayList<Horario> getAllHorario(Estacion estacion) {
+		ArrayList<Horario> listHorario = new ArrayList<Horario>();
+		SQLiteDatabase db = this.getReadableDatabase();
+		String[] data = {estacion.getId()+""};
+		Cursor cursor = db.rawQuery("SELECT * FROM horario WHERE estacion=?", data);
+		
+		while(cursor.moveToNext()){
+			listHorario.add(new Horario(cursor));
+		}
+		
+		db.close();
+		return listHorario;
 	}
 
 	/**
