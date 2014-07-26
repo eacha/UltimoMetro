@@ -38,7 +38,7 @@ class AppDatabase():
         fd = open(data, 'r')
         lineas = json.loads(fd.read())
 
-        self.cursor.executemany('INSERT INTO LINEA (name, color, start, end, express) '
+        self.cursor.executemany('INSERT INTO linea (name, color, start, end, express) '
                                 'VALUES ( :name, :color, :start, :end, :express)', lineas)
         self.conection.commit()
         fd.close()
@@ -50,12 +50,12 @@ class AppDatabase():
 
         for row in csv_reader:
             if len(row) != line_elements:
-                linea_id = (self.cursor.execute('SELECT id FROM LINEA WHERE name = ?', (row[0],)).fetchone())[0]
+                linea_id = (self.cursor.execute('SELECT id FROM linea WHERE name = ?', (row[0],)).fetchone())[0]
             else:
                 estacion_name = row[3]
 
                 if estacion_name != 'Estación':
-                    self.cursor.execute('INSERT INTO ESTACION (name, linea) VALUES ( ?, ? )',
+                    self.cursor.execute('INSERT INTO estacion (name, linea) VALUES ( ?, ? )',
                                         (estacion_name, linea_id))
 
         self.conection.commit()
@@ -71,15 +71,15 @@ class AppDatabase():
             for row in csv_reader:
 
                 if len(row) != line_elements:
-                    linea_id = (self.cursor.execute('SELECT id FROM LINEA WHERE name = ?', (row[0],)).fetchone())[0]
+                    linea_id = (self.cursor.execute('SELECT id FROM linea WHERE name = ?', (row[0],)).fetchone())[0]
                 else:
                     estacion = row[name_station]
 
                     if estacion != 'Estación':
                         print estacion
-                        estacion_id = (self.cursor.execute('SELECT id FROM ESTACION WHERE name = ? and linea = ?',
+                        estacion_id = (self.cursor.execute('SELECT id FROM estacion WHERE name = ? and linea = ?',
                                                            (estacion, linea_id)).fetchone())[0]
-                        self.cursor.execute('INSERT INTO HORARIO (estacion, type, open, close, first_start, last_start,'
+                        self.cursor.execute('INSERT INTO horario (estacion, type, open, close, first_start, last_start,'
                                             ' first_end, last_end) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
                                             (estacion_id, type, row[open_st], row[close_st], row[f_start], row[l_start],
                                              row[f_end], row[l_end]))

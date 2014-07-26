@@ -115,3 +115,4 @@ proguard/
 
 # Log Files
 *.log
+/bin

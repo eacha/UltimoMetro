@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ultimo Metro</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_estacion">EstacionActivity</string>
+    <string name="apertura_estacion">Apertura\nEstacion</string>
+    <string name="primer_tren">Primer\nTren</string>
+    <string name="apertura_boleteria">Apertura\nBoleteria</string>
+    <string name="dia_laboral">Dia Laboral</string>
+    <string name="sabado">Sabado</string>
+    <string name="domingos_y_festivos">Domingos y\nFestivos</string>
+
+</resources>

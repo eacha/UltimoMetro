@@ -1,5 +1,10 @@
+-- Creación tablas android
+CREATE TABLE android_metadata (locale TEXT DEFAULT 'en_US');
+-- Insertar datos
+INSERT INTO android_metadata VALUES ('en_US');
+
 -- Creación de las tablas
-CREATE TABLE LINEA
+CREATE TABLE linea
 ( id INTEGER PRIMARY KEY NOT NULL,
   name TEXT NOT NULL,
   color TEXT NOT NULL,
@@ -7,13 +12,13 @@ CREATE TABLE LINEA
   end  TEXT NOT NULL,
   express BOOLEAN NOT NULL );
 
-CREATE TABLE ESTACION
+CREATE TABLE estacion
 ( id INTEGER PRIMARY KEY NOT NULL,
   name TEXT NOT NULL,
   linea INTEGER NOT NULL REFERENCES LINEA(id),
   position TEXT);
 
-CREATE TABLE HORARIO
+CREATE TABLE horario
 ( id INTEGER PRIMARY KEY NOT NULL,
   estacion INTEGER NOT NULL REFERENCES ESTACION(id),
   type INTEGER NOT NULL,

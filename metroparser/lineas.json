@@ -1,5 +1,5 @@
-[{"name": "Linea 1", "color": "red", "start": "Los Dominicos", "end": "San Pablo", "express": false},
- {"name": "Linea 2", "color": "yellow", "start": "La Cisterna", "end": "Vespucio Norte", "express": true},
- {"name": "Linea 4", "color": "blue", "start": "Puente Alto", "end": "Tobalaba", "express": true},
- {"name": "Linea 4A", "color": "sky blue", "start": "La Cisterna", "end": "Vicuña Mackenna", "express": false},
- {"name": "Linea 5", "color": "green", "start": "Vicente Valdes", "end": "Plaza de Maipu", "express": true}]
+[{"name": "Linea 1", "color": "#EE081B", "start": "Los Dominicos", "end": "San Pablo", "express": false},
+ {"name": "Linea 2", "color": "#DD8731", "start": "La Cisterna", "end": "Vespucio Norte", "express": true},
+ {"name": "Linea 4", "color": "#1E4F9C", "start": "Plaza Puente Alto", "end": "Tobalaba", "express": true},
+ {"name": "Linea 4A", "color": "#0099DD", "start": "La Cisterna", "end": "Vicuña Mackenna", "express": false},
+ {"name": "Linea 5", "color": "#009370", "start": "Vicente Valdés", "end": "Plaza Maipú", "express": true}]
