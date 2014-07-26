@@ -76,7 +76,6 @@ class AppDatabase():
                     estacion = row[name_station]
 
                     if estacion != 'Estación':
-                        print estacion
                         estacion_id = (self.cursor.execute('SELECT id FROM estacion WHERE name = ? and linea = ?',
                                                            (estacion, linea_id)).fetchone())[0]
                         self.cursor.execute('INSERT INTO horario (estacion, type, open, close, first_start, last_start,'
