@@ -1,9 +1,12 @@
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/LightGrey"
     tools:context="com.example.ultimometro.EstacionActivity"
     tools:ignore="MergeRootFrame">
     
@@ -12,4 +15,76 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
     
+    <Button 
+        android:id="@+id/sentido"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    
+ <!--    <TableLayout 
+        android:id="@+id/daytable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@color/LightSeaGreen">
+        
+     	<TableRow>
+            <TextView android:text="Sol"/>
+            <TextView android:text="@string/apertura_estacion"/>
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:text="@string/dia_laboral"/>
+        </TableRow>
+        
+         <TableRow>
+            <TextView android:text="@string/sabado"/>
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:text="@string/domingos_y_festivos"/>
+        </TableRow>
+        
+    </TableLayout>
+    
+    <TableLayout 
+        android:id="@+id/nigthtable"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical|center_horizontal"
+        android:background="@color/LightSeaGreen">
+        
+        <TableRow>
+            <TextView android:text="Luna"/>
+            <TextView android:text="@string/apertura_estacion"/>
+            <TextView android:text="@string/apertura_boleteria"/>
+            <TextView android:text="@string/primer_tren"/>
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:text="@string/dia_laboral"/>
+        </TableRow>
+        
+         <TableRow>
+            <TextView android:text="@string/sabado"/>
+        </TableRow>
+        
+        <TableRow>
+            <TextView android:text="@string/domingos_y_festivos"/>
+        </TableRow>
+        
+    </TableLayout> -->
+    
+    <android.support.v7.widget.GridLayout      
+        android:id="@+id/dayTable"
+        app:columnCount="4"
+        app:rowCount="5">
+
+ 		<TextView 
+ 		    android:text="Sol"
+ 		    app:layout_rowSpan="2"/>
+ 		<TextView android:text="@string/apertura_estacion"/>
+ 		<TextView android:text="@string/primer_tren"/>
+        
+    </android.support.v7.widget.GridLayout>
+        
 </LinearLayout>

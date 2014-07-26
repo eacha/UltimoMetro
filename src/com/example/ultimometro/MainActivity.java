@@ -2,6 +2,7 @@ package com.example.ultimometro;
 
 import java.util.ArrayList;
 
+import android.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -42,13 +43,10 @@ public class MainActivity extends ActionBarActivity {
 				Intent intent = new Intent(getApplicationContext(), EstacionActivity.class);
 				intent.putExtra("ID", ""+idLinea);
 				startActivity(intent);
-				
 			}
-        	
 		});
         
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -69,17 +67,6 @@ public class MainActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-//    private ArrayList<String> lineaName(ArrayList<Linea> Lineas) {
-//		ArrayList<String> lista =  new ArrayList<String>();
-//		
-//		for (Linea  linea: Lineas) {
-//			lista.add(linea.getName());
-//		}
-//		
-//		return lista;
-//		
-//	}
 
 	/**
      * A placeholder fragment containing a simple view.
