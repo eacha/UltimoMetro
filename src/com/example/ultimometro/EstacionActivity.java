@@ -11,14 +11,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
-import android.widget.TableRow;
 import android.widget.TextView;
 
 public class EstacionActivity extends ActionBarActivity {
 
 	private TextView textoEstacion;
-	private TableLayout tableLayout;
 	private DBHelper database;
 	
 	@Override
@@ -28,7 +25,6 @@ public class EstacionActivity extends ActionBarActivity {
 		
 		Intent intent =  getIntent();
 		textoEstacion = (TextView) findViewById(R.id.texto_estacion);
-		//tableLayout = (TableLayout) findViewById(R.id.daytable);
 		database =  new DBHelper(this);
 		
 		int idLinea = Integer.parseInt(intent.getStringExtra("ID"));
@@ -37,7 +33,9 @@ public class EstacionActivity extends ActionBarActivity {
 		ArrayList<Horario> lista = database.getAllHorario(estacion);
 		
 		textoEstacion.setText(estacion.getName());
+		
 		this.createStartTables(linea, lista);
+		this.createNightTables(linea, lista);
 				
 	}
 
@@ -63,40 +61,90 @@ public class EstacionActivity extends ActionBarActivity {
 	
 	private void createStartTables(Linea linea, ArrayList<Horario> lista){
 		
-		for (int i = 0; i < tableLayout.getChildCount(); i++) {
-			TableRow tableRow = (TableRow) tableLayout.getChildAt(i);
-			if (i == 0) {
-				//Cabecera de la tabla
-				TextView first = new TextView(this);
-				TextView end = new TextView(this);
-				
-				first.setText(linea.getStart());
-				end.setText(linea.getEnd());
-				
-				tableRow.addView(first);
-				tableRow.addView(end);
-				
-				continue;
-			}
+//		GridLayout grid = (GridLayout) findViewById(R.id.dayTable);
+		TextView start_station = (TextView) findViewById(R.id.start),
+				 end_station = (TextView) findViewById(R.id.end);
+		
+		int i = 1;
+		String cell = "cell_";
+		
+		start_station.setText(linea.getBreakStart());
+		end_station.setText(linea.getBreakEnd());
+		
+		for (Horario horario : lista) {
+			int resID_open = getResources().getIdentifier(cell+i, "id", getPackageName()),
+				resID_start = getResources().getIdentifier(cell+(i+1), "id", getPackageName()),
+				resID_end = getResources().getIdentifier(cell+(i+2), "id", getPackageName());
 			
-			Horario current = lista.get(i-1);
-			TextView open, close, firstTrain;
+			TextView open = (TextView) findViewById(resID_open),
+					 start = (TextView) findViewById(resID_start),
+					 end = (TextView) findViewById(resID_end);
 			
-			open =  new TextView(this);
-			close =  new TextView(this);
-			firstTrain =  new TextView(this);
+			open.setText(horario.getOpen());
+			start.setText(horario.getFirst_start());
+			end.setText(horario.getFirst_end());
 			
-			open.setText(current.getOpen());
-			close.setText(current.getClose());
-			firstTrain.setText(current.getFirst_start());
-					
-			tableRow.addView(open);
-			tableRow.addView(close);
-			tableRow.addView(firstTrain);
+			i = i + 3;
 		}
 		
+	}
+	
+	private void createNightTables(Linea linea, ArrayList<Horario> lista){
+		
+//		GridLayout grid = (GridLayout) findViewById(R.id.dayTable);
+		TextView start_station = (TextView) findViewById(R.id.startNight),
+				 end_station = (TextView) findViewById(R.id.endNight);
+		
+		int i = 1;
+		String cell = "celln_";
+		
+		start_station.setText(linea.getBreakStart());
+		end_station.setText(linea.getBreakEnd());
+		
+		for (Horario horario : lista) {
+			int resID_close = getResources().getIdentifier(cell+i, "id", getPackageName()),
+				resID_start = getResources().getIdentifier(cell+(i+1), "id", getPackageName()),
+				resID_end = getResources().getIdentifier(cell+(i+2), "id", getPackageName());
+			
+			TextView close = (TextView) findViewById(resID_close),
+					 start = (TextView) findViewById(resID_start),
+					 end = (TextView) findViewById(resID_end);
+			
+			close.setText(horario.getClose());
+			start.setText(horario.getLast_start());
+			end.setText(horario.getLast_end());
+			
+			i = i + 3;
+		}
 		
 	}
+	
+//	private ArrayList<TextView> getDays(){
+//		ArrayList<TextView> lista = new ArrayList<TextView>();
+//		TextView laboral_day = new TextView(this),
+//				 saturday = new TextView(this),
+//				 sunday = new TextView(this);
+//		
+//		laboral_day.setText("Día Laboral");
+//		saturday.setText("Sabado");
+//		sunday.setText("Domingo y\nFestivos");
+//		
+//		laboral_day.setTypeface(null, Typeface.BOLD);
+//		saturday.setTypeface(null, Typeface.BOLD);
+//		sunday.setTypeface(null, Typeface.BOLD);
+//		
+//		android.widget.LinearLayout.LayoutParams params =  new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1f);
+//		
+//		laboral_day.setLayoutParams(params);
+//		saturday.setLayoutParams(params);
+//		sunday.setLayoutParams(params);
+//		
+//		lista.add(laboral_day);
+//		lista.add(saturday);
+//		lista.add(sunday);
+//		
+//		return lista;
+//	}
 
 	/**
 	 * A placeholder fragment containing a simple view.

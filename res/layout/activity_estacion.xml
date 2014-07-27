@@ -14,77 +14,280 @@
         android:id="@+id/texto_estacion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
-    
-    <Button 
-        android:id="@+id/sentido"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-    
- <!--    <TableLayout 
-        android:id="@+id/daytable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical|center_horizontal"
-        android:background="@color/LightSeaGreen">
-        
-     	<TableRow>
-            <TextView android:text="Sol"/>
-            <TextView android:text="@string/apertura_estacion"/>
-        </TableRow>
-        
-        <TableRow>
-            <TextView android:text="@string/dia_laboral"/>
-        </TableRow>
-        
-         <TableRow>
-            <TextView android:text="@string/sabado"/>
-        </TableRow>
-        
-        <TableRow>
-            <TextView android:text="@string/domingos_y_festivos"/>
-        </TableRow>
-        
-    </TableLayout>
-    
-    <TableLayout 
-        android:id="@+id/nigthtable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_vertical|center_horizontal"
-        android:background="@color/LightSeaGreen">
-        
-        <TableRow>
-            <TextView android:text="Luna"/>
-            <TextView android:text="@string/apertura_estacion"/>
-            <TextView android:text="@string/apertura_boleteria"/>
-            <TextView android:text="@string/primer_tren"/>
-        </TableRow>
-        
-        <TableRow>
-            <TextView android:text="@string/dia_laboral"/>
-        </TableRow>
-        
-         <TableRow>
-            <TextView android:text="@string/sabado"/>
-        </TableRow>
-        
-        <TableRow>
-            <TextView android:text="@string/domingos_y_festivos"/>
-        </TableRow>
-        
-    </TableLayout> -->
-    
+         
     <android.support.v7.widget.GridLayout      
         android:id="@+id/dayTable"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		android:background="@color/LightCoral"
         app:columnCount="4"
         app:rowCount="5">
 
- 		<TextView 
- 		    android:text="Sol"
+ 		<ImageView 
+ 		    android:id="@+id/dayImg"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    android:src="@drawable/ic_sun"
+ 		    android:contentDescription="@string/sol"
+ 		    app:layout_rowSpan="2"
+ 		    app:layout_gravity="fill|center"/>
+ 		
+ 		 <TextView  
+ 		    android:text="@string/apertura_estacion"
+ 		    android:textStyle="bold"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    android:layout_marginLeft="5dp"
+ 		    android:gravity="center"
+ 		    app:layout_gravity="fill|center"
  		    app:layout_rowSpan="2"/>
- 		<TextView android:text="@string/apertura_estacion"/>
- 		<TextView android:text="@string/primer_tren"/>
+ 		 
+ 		<TextView 
+ 		    android:text="@string/primer_tren"
+ 		    android:textStyle="bold"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    android:layout_marginLeft="5dp"
+ 		    app:layout_gravity="center"
+ 		    app:layout_columnSpan="2"/>
+
+ 		<TextView  
+ 		    android:id="@+id/start"
+ 		    android:textSize="12sp"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    android:layout_marginLeft="5dp"
+ 		    android:layout_marginRight="5dp"
+ 		    android:gravity="center_horizontal"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView
+ 		    android:id="@+id/end"
+ 		    android:textSize="12sp"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    android:layout_marginLeft="5dp"
+ 		    android:gravity="center_horizontal"
+ 		    app:layout_gravity="center"/>
+
+	 	<TextView 
+ 		    android:text="@string/dia_laboral"
+ 		    android:textStyle="bold"
+ 		    android:layout_marginLeft="3dp"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_column="0"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/cell_1"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/cell_2"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/cell_3"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 				
+ 		<TextView 
+ 		    android:text="@string/sabado"
+ 		    android:textStyle="bold"
+ 		    android:layout_marginLeft="3dp"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_column="0"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/cell_4"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/cell_5"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/cell_6"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:text="@string/domingo_y_festivo"
+ 		    android:textStyle="bold"
+ 		    android:layout_marginLeft="3dp"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_column="0"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/cell_7"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/cell_8"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/cell_9"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>		
         
     </android.support.v7.widget.GridLayout>
+    
+    <android.support.v7.widget.GridLayout      
+        android:id="@+id/nightTable"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+		android:layout_marginLeft="10dp"
+		android:layout_marginRight="10dp"
+		android:layout_marginTop="25dp"
+		android:background="@color/LightCoral"
+        app:columnCount="4"
+        app:rowCount="5">
+
+ 		<ImageView 
+ 		    android:id="@+id/nightImg"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    android:src="@drawable/ic_moon"
+ 		    android:contentDescription="@string/luna"
+ 		    app:layout_rowSpan="2"
+ 		    app:layout_gravity="fill|center"/>
+ 		
+ 		 <TextView  
+ 		    android:text="@string/cierre_estacion"
+ 		    android:textStyle="bold"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    android:layout_marginLeft="5dp"
+ 		    android:gravity="center"
+ 		    app:layout_gravity="fill|center"
+ 		    app:layout_rowSpan="2"/>
+ 		 
+ 		<TextView 
+ 		    android:text="@string/ultimo_tren"
+ 		    android:textStyle="bold"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    android:layout_marginLeft="5dp"
+ 		    app:layout_gravity="center"
+ 		    app:layout_columnSpan="2"/>
+
+ 		<TextView  
+ 		    android:id="@+id/startNight"
+ 		    android:textSize="12sp"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    android:layout_marginLeft="5dp"
+ 		    android:layout_marginRight="5dp"
+ 		    android:gravity="center_horizontal"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView
+ 		    android:id="@+id/endNight"
+ 		    android:textSize="12sp"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    android:layout_marginLeft="5dp"
+ 		    android:gravity="center_horizontal"
+ 		    app:layout_gravity="center"/>
+
+	 	<TextView 
+ 		    android:text="@string/dia_laboral"
+ 		    android:textStyle="bold"
+ 		    android:layout_marginLeft="3dp"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_column="0"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/celln_1"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/celln_2"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/celln_3"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 				
+ 		<TextView 
+ 		    android:text="@string/sabado"
+ 		    android:textStyle="bold"
+ 		    android:layout_marginLeft="3dp"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_column="0"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/celln_4"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/celln_5"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/celln_6"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:text="@string/domingo_y_festivo"
+ 		    android:textStyle="bold"
+ 		    android:layout_marginLeft="3dp"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_column="0"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/celln_7"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/celln_8"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>
+ 		
+ 		<TextView 
+ 		    android:id="@+id/celln_9"
+ 		    android:layout_width="wrap_content"
+ 		    android:layout_height="wrap_content"
+ 		    app:layout_gravity="center"/>		
         
+    </android.support.v7.widget.GridLayout>
+    
 </LinearLayout>

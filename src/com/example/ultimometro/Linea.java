@@ -53,6 +53,40 @@ public class Linea {
 		return express;
 	}
 	
+	public String getBreakStart(){
+		return this.twoLine(this.start);
+	}
+	
+	public String getBreakEnd(){
+		return this.twoLine(this.end);
+	}
+	
+	private String twoLine(String word) {
+		String[] words =  word.split(" ");
+		int largo = 0,
+			wordLength = word.length()/2;
+		String res = "";
+		boolean salto = true;
+		if (words.length > 1){
+			for (String string : words) {
+				if ((largo+1+string.length() > wordLength) && salto ) {
+					res += ("\n"+string);
+					salto = false;
+				}
+				else if(res.equals("")) {
+					 res = string;
+				}
+				else {
+					res += (" "+ string); 
+				}
+				largo = res.length();
+			}
+			return res;
+		}
+		else
+			return word;
+	}
+	
 	@Override
 	public String toString() {
 		return "Linea [id=" + id + ", name=" + name + ", color=" + color

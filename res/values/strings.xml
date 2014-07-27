@@ -6,10 +6,13 @@
     <string name="action_settings">Settings</string>
     <string name="title_activity_estacion">EstacionActivity</string>
     <string name="apertura_estacion">Apertura\nEstacion</string>
-    <string name="primer_tren">Primer\nTren</string>
-    <string name="apertura_boleteria">Apertura\nBoleteria</string>
-    <string name="dia_laboral">Dia Laboral</string>
+    <string name="primer_tren">Primer Tren</string>
+    <string name="dia_laboral">Día Laboral</string>
     <string name="sabado">Sabado</string>
-    <string name="domingos_y_festivos">Domingos y\nFestivos</string>
+    <string name="domingo_y_festivo">Domingo y\nFestivos</string>
+    <string name="sol">sol</string>
+    <string name="cierre_estacion">Cierre\nEstación</string>
+    <string name="ultimo_tren">Ultimo Tren</string>
+    <string name="luna">luna</string>
 
 </resources>
