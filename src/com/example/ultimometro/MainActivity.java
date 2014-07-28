@@ -41,6 +41,7 @@ public class MainActivity extends ActionBarActivity {
 				
 				Intent intent = new Intent(getApplicationContext(), EstacionActivity.class);
 				intent.putExtra("ID", ""+idLinea);
+				intent.putExtra("ESTACION", ""+0);
 				startActivity(intent);
 			}
 		});

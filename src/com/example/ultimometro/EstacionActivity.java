@@ -27,16 +27,21 @@ public class EstacionActivity extends ActionBarActivity {
 		textoEstacion = (TextView) findViewById(R.id.texto_estacion);
 		database =  new DBHelper(this);
 		
-		int idLinea = Integer.parseInt(intent.getStringExtra("ID"));
-		Linea linea = database.getLinea(idLinea);
-		Estacion estacion = database.getFirstEstacion(linea);
-		ArrayList<Horario> lista = database.getAllHorario(estacion);
+		int idLinea = Integer.parseInt(intent.getStringExtra("ID")),
+			idEstacion = Integer.parseInt(intent.getStringExtra("ESTACION"));
 		
-		textoEstacion.setText(estacion.getName());
-		
-		this.createStartTables(linea, lista);
-		this.createNightTables(linea, lista);
-				
+		if (idEstacion == 0) {
+			Linea linea = database.getLinea(idLinea);
+			Estacion estacion = database.getFirstEstacion(linea);
+			ArrayList<Horario> lista = database.getAllHorario(estacion);
+			
+			textoEstacion.setText(estacion.getName());
+			this.createStartTables(linea, lista);
+			this.createNightTables(linea, lista);		
+		}
+		else {
+			
+		}
 	}
 
 	@Override
@@ -61,7 +66,6 @@ public class EstacionActivity extends ActionBarActivity {
 	
 	private void createStartTables(Linea linea, ArrayList<Horario> lista){
 		
-//		GridLayout grid = (GridLayout) findViewById(R.id.dayTable);
 		TextView start_station = (TextView) findViewById(R.id.start),
 				 end_station = (TextView) findViewById(R.id.end);
 		
@@ -91,7 +95,6 @@ public class EstacionActivity extends ActionBarActivity {
 	
 	private void createNightTables(Linea linea, ArrayList<Horario> lista){
 		
-//		GridLayout grid = (GridLayout) findViewById(R.id.dayTable);
 		TextView start_station = (TextView) findViewById(R.id.startNight),
 				 end_station = (TextView) findViewById(R.id.endNight);
 		
@@ -119,33 +122,6 @@ public class EstacionActivity extends ActionBarActivity {
 		
 	}
 	
-//	private ArrayList<TextView> getDays(){
-//		ArrayList<TextView> lista = new ArrayList<TextView>();
-//		TextView laboral_day = new TextView(this),
-//				 saturday = new TextView(this),
-//				 sunday = new TextView(this);
-//		
-//		laboral_day.setText("Día Laboral");
-//		saturday.setText("Sabado");
-//		sunday.setText("Domingo y\nFestivos");
-//		
-//		laboral_day.setTypeface(null, Typeface.BOLD);
-//		saturday.setTypeface(null, Typeface.BOLD);
-//		sunday.setTypeface(null, Typeface.BOLD);
-//		
-//		android.widget.LinearLayout.LayoutParams params =  new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT, 1f);
-//		
-//		laboral_day.setLayoutParams(params);
-//		saturday.setLayoutParams(params);
-//		sunday.setLayoutParams(params);
-//		
-//		lista.add(laboral_day);
-//		lista.add(saturday);
-//		lista.add(sunday);
-//		
-//		return lista;
-//	}
-
 	/**
 	 * A placeholder fragment containing a simple view.
 	 */
