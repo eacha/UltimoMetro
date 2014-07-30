@@ -3,6 +3,7 @@ package com.example.ultimometro;
 import java.util.ArrayList;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -12,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EstacionActivity extends ActionBarActivity {
 
@@ -35,6 +37,10 @@ public class EstacionActivity extends ActionBarActivity {
 			Estacion estacion = database.getFirstEstacion(linea);
 			ArrayList<Horario> lista = database.getAllHorario(estacion);
 			
+			android.support.v7.app.ActionBar bar = getSupportActionBar();
+			bar.setTitle(linea.getName());
+			bar.setBackgroundDrawable(new ColorDrawable(linea.getColor()));
+			
 			textoEstacion.setText(estacion.getName());
 			this.createStartTables(linea, lista);
 			this.createNightTables(linea, lista);		
@@ -57,13 +63,24 @@ public class EstacionActivity extends ActionBarActivity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		switch (item.getItemId()) {
+//		case R.id.action_settings:
+//			return true;
+		case R.id.menu_lineas:
+			Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
+	          .show();
+			openLineas();
 			return true;
+		default:
+			return super.onOptionsItemSelected(item);
 		}
-		return super.onOptionsItemSelected(item);
 	}
 	
+	private void openLineas() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	private void createStartTables(Linea linea, ArrayList<Horario> lista){
 		
 		TextView start_station = (TextView) findViewById(R.id.start),

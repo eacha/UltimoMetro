@@ -3,6 +3,8 @@ package com.example.ultimometro;
 import java.util.ArrayList;
 
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
@@ -29,6 +31,9 @@ public class MainActivity extends ActionBarActivity {
         database = new DBHelper(this);
         ArrayList<Linea> dataLinea =  database.getArrayLineas();     
         listLinea = (ListView) findViewById(R.id.listLinea);
+        
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
+		bar.setBackgroundDrawable(new ColorDrawable(Color.BLACK));
 
         AdapterLinea adapter = new AdapterLinea(this, dataLinea);
         listLinea.setAdapter(adapter);        
@@ -61,10 +66,10 @@ public class MainActivity extends ActionBarActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
+//        int id = item.getItemId();
+//        if (id == R.id.action_settings) {
+//            return true;
+//        }
         return super.onOptionsItemSelected(item);
     }
 
