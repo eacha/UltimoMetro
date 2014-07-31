@@ -14,5 +14,7 @@
     <string name="cierre_estacion">Cierre\nEstación</string>
     <string name="ultimo_tren">Ultimo Tren</string>
     <string name="luna">luna</string>
+    <string name="menu_lineas">Lineas</string>
+    <string name="title_activity_linea">LineaActivity</string>
 
 </resources>
