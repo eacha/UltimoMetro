@@ -54,6 +54,22 @@ public class DBHelper {
 		return listLinea;
 	}
 	
+	public ArrayList<Estacion> getArrayEstacion(Linea linea){
+		ArrayList<Estacion> listEstacion = new ArrayList<Estacion>();
+		SQLiteDatabase db = this.getReadableDatabase();
+		String[] data = {linea.getId()+""};
+		Cursor cursor = db.rawQuery("SELECT * FROM estacion WHERE linea=?", data);
+		
+		while(cursor.moveToNext()){
+			Estacion estacion = new Estacion(cursor);
+			listEstacion.add(estacion);
+		}
+		
+		db.close();
+		return listEstacion;		
+		
+	}
+	
 	public Linea getLinea(int id) {
 		SQLiteDatabase db = this.getReadableDatabase();
 		String[] data = {""+id};
@@ -77,6 +93,18 @@ public class DBHelper {
 		SQLiteDatabase db = this.getReadableDatabase();
 		String[] data = {name, idLinea+""};
 		Cursor cursor = db.rawQuery("SELECT * FROM estacion WHERE name=? and linea=?", data);
+		
+		cursor.moveToFirst();
+		Estacion estacion =  new Estacion(cursor);
+		
+		db.close();
+		return estacion;
+	}
+	
+	public Estacion getEstacionById(int id){
+		SQLiteDatabase db = this.getReadableDatabase();
+		String[] data = {id+""};
+		Cursor cursor = db.rawQuery("SELECT * FROM estacion WHERE id=?", data);
 		
 		cursor.moveToFirst();
 		Estacion estacion =  new Estacion(cursor);

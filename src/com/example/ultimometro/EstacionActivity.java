@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,6 +20,8 @@ public class EstacionActivity extends ActionBarActivity {
 
 	private TextView textoEstacion;
 	private DBHelper database;
+	private Linea linea;
+	private Estacion estacion;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -31,23 +34,26 @@ public class EstacionActivity extends ActionBarActivity {
 		
 		int idLinea = Integer.parseInt(intent.getStringExtra("ID")),
 			idEstacion = Integer.parseInt(intent.getStringExtra("ESTACION"));
+		linea = database.getLinea(idLinea);
 		
 		if (idEstacion == 0) {
-			Linea linea = database.getLinea(idLinea);
-			Estacion estacion = database.getFirstEstacion(linea);
+			
+			estacion = database.getFirstEstacion(linea);
+		}
+		else{
+			
+			estacion =  database.getEstacionById(idEstacion);
+		}
 			ArrayList<Horario> lista = database.getAllHorario(estacion);
 			
 			android.support.v7.app.ActionBar bar = getSupportActionBar();
 			bar.setTitle(linea.getName());
-			bar.setBackgroundDrawable(new ColorDrawable(linea.getColor()));
+			bar.setBackgroundDrawable(new ColorDrawable(linea.getColor()));					
 			
 			textoEstacion.setText(estacion.getName());
 			this.createStartTables(linea, lista);
 			this.createNightTables(linea, lista);		
-		}
-		else {
-			
-		}
+		
 	}
 
 	@Override
@@ -77,8 +83,10 @@ public class EstacionActivity extends ActionBarActivity {
 	}
 	
 	private void openLineas() {
-		// TODO Auto-generated method stub
-		
+		Log.d("hola", linea.getId()+"");
+		Intent intent = new Intent(getApplicationContext(), LineaActivity.class);
+		intent.putExtra("ID", linea.getId()+"");
+		startActivity(intent);
 	}
 
 	private void createStartTables(Linea linea, ArrayList<Horario> lista){
