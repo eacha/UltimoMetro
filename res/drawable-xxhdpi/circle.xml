@@ -9,7 +9,7 @@
 
         <stroke
             android:id="@+id/ring"
-            android:width="3dp"
+            android:width="5dp"
             android:color="@color/Red" />
 
  </shape>
