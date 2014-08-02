@@ -62,29 +62,50 @@ public class Linea {
 	}
 	
 	private String twoLine(String word) {
-		String[] words =  word.split(" ");
-		int largo = 0,
-			wordLength = word.length()/2;
-		String res = "";
-		boolean salto = true;
-		if (words.length > 1){
-			for (String string : words) {
-				if ((largo+1+string.length() > wordLength) && salto ) {
-					res += ("\n"+string);
-					salto = false;
-				}
-				else if(res.equals("")) {
-					 res = string;
-				}
-				else {
-					res += (" "+ string); 
-				}
-				largo = res.length();
-			}
-			return res;
-		}
-		else
-			return word;
+//		String[] words =  word.split(" ");
+//		int largo = 0,
+//			wordLength = word.length()/2;
+//		String res = "";
+//		boolean salto = true;
+//		if (words.length > 1){
+//			for (String string : words) {
+//				if ((largo+1+string.length() > wordLength) && salto ) {
+//					res += ("\n"+string);
+//					salto = false;
+//				}
+//				else if(res.equals("")) {
+//					 res = string;
+//				}
+//				else {
+//					res += (" "+ string);
+//				}
+//				largo = res.length();
+//			}
+//			return res;
+//		}
+//		else
+//			return word;
+        String[] words = word.split(" ");
+        int wordLength = words.length;
+        if (wordLength == 1) {
+            return word;
+        }
+        else {
+            boolean primer = true;
+            String res = "";
+
+            for (String s : words) {
+                if (primer) {
+                    res += s + "\n";
+                    primer = false;
+                }
+                else {
+                    res += s + " ";
+                }
+            }
+            return res.trim();
+        }
+
 	}
 	
 	@Override

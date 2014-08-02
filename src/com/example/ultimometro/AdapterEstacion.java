@@ -37,12 +37,10 @@ public class AdapterEstacion extends ArrayAdapter<Estacion> {
         View line =  (View) item.findViewById(R.id.draw_line),
              station = (View) item.findViewById(R.id.draw_station);
 
-       ((GradientDrawable)station.getBackground()).setStroke(5, linea.getColor());
+       ((GradientDrawable)station.getBackground()).setStroke(4, linea.getColor());
 
         estacionName.setText(this.data.get(position).getName());
 		line.setBackgroundColor(linea.getColor());
-
-		//item.setBackgroundColor(this.data.get(position).getColor());
 		
 		return item;
 	}
