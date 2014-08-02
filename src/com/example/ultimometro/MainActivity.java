@@ -17,6 +17,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
+import com.example.ultimometro.model.DBHelper;
+import com.example.ultimometro.model.Linea;
+
 public class MainActivity extends ActionBarActivity {
 
 	private ListView listLinea;

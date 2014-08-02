@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.ultimometro.model.Linea;
+
 public class AdapterLinea extends ArrayAdapter<Linea> {
 
 	private Activity context;

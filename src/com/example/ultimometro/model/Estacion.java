@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.ultimometro;
+package com.example.ultimometro.model;
 
 import android.database.Cursor;
 

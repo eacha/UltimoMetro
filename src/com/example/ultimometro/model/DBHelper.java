@@ -1,4 +1,4 @@
-package com.example.ultimometro;
+package com.example.ultimometro.model;
 
 import java.io.File;
 import java.io.FileOutputStream;

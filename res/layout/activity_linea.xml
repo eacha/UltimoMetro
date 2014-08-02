@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/LightGrey"
     android:orientation="vertical" >
     
      <ListView
         android:id="@+id/listLinea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="@android:color/transparent"
+        android:divider="@color/Gray"
         android:dividerHeight="2.0sp"
         android:paddingRight="5dp"
         android:paddingLeft="5dp"

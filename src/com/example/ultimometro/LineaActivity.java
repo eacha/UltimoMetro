@@ -3,7 +3,6 @@ package com.example.ultimometro;
 import java.util.ArrayList;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -16,6 +15,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+
+import com.example.ultimometro.model.DBHelper;
+import com.example.ultimometro.model.Estacion;
+import com.example.ultimometro.model.Linea;
 
 public class LineaActivity extends ActionBarActivity {
 
@@ -38,9 +41,10 @@ public class LineaActivity extends ActionBarActivity {
 		listEstacion = (ListView) findViewById(R.id.listLinea);
 
 		android.support.v7.app.ActionBar bar = getSupportActionBar();
-		bar.setBackgroundDrawable(new ColorDrawable(Color.BLACK));
+		bar.setTitle(linea.getName());
+		bar.setBackgroundDrawable(new ColorDrawable(linea.getColor()));
 		
-		AdapterEstacion estacion = new AdapterEstacion(this, estacionList);
+		AdapterEstacion estacion = new AdapterEstacion(this, estacionList, linea);
 		listEstacion.setAdapter(estacion);
 		listEstacion.setOnItemClickListener(new OnItemClickListener() {
 

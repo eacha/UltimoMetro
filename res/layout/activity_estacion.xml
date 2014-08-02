@@ -13,15 +13,21 @@
     <TextView 
         android:id="@+id/texto_estacion"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textColor="@color/Red"
+        android:textSize="16sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"/>
          
     <android.support.v7.widget.GridLayout      
         android:id="@+id/dayTable"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-		android:layout_marginLeft="10dp"
-		android:layout_marginRight="10dp"
-		android:background="@color/LightCoral"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+		android:background="@drawable/table"
         app:columnCount="4"
         app:rowCount="5">
 
@@ -159,7 +165,7 @@
 		android:layout_marginLeft="10dp"
 		android:layout_marginRight="10dp"
 		android:layout_marginTop="25dp"
-		android:background="@color/LightCoral"
+		android:background="@drawable/table"
         app:columnCount="4"
         app:rowCount="5">
 

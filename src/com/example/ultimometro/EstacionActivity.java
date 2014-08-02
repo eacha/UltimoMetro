@@ -16,6 +16,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.ultimometro.model.DBHelper;
+import com.example.ultimometro.model.Estacion;
+import com.example.ultimometro.model.Horario;
+import com.example.ultimometro.model.Linea;
+
 public class EstacionActivity extends ActionBarActivity {
 
 	private TextView textoEstacion;
