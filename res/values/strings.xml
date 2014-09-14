@@ -16,5 +16,6 @@
     <string name="luna">luna</string>
     <string name="menu_lineas">Lineas</string>
     <string name="title_activity_linea">LineaActivity</string>
+    <string name="title_activity_splash">splash</string>
 
 </resources>

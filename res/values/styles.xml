@@ -1,5 +1,4 @@
-<resources xmlns:android="http://schemas.android.com/apk/res/android"
-    	   xmlns:app="http://schemas.android.com/apk/res-auto">
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
@@ -17,11 +16,11 @@
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
            <item name="actionBarStyle">@style/ActionBarCompat</item>
+           <item name="android:icon">@drawable/ic_logo</item>
     </style>
     
     <style name="ActionBarCompat" parent="@style/Widget.AppCompat.Base.ActionBar">
         <item name="titleTextStyle">@style/titleStyle</item>
-        
     </style>
 
     <style name="titleStyle" parent="@style/TextAppearance.AppCompat.Widget.Base.ActionBar.Title">
