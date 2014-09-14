@@ -1,14 +1,11 @@
 package com.example.ultimometro;
 
-import java.util.ArrayList;
-
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +17,8 @@ import com.example.ultimometro.model.DBHelper;
 import com.example.ultimometro.model.Estacion;
 import com.example.ultimometro.model.Horario;
 import com.example.ultimometro.model.Linea;
+
+import java.util.ArrayList;
 
 public class EstacionActivity extends ActionBarActivity {
 

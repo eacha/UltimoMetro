@@ -1,7 +1,5 @@
 package com.example.ultimometro;
 
-import java.util.ArrayList;
-
 import android.app.Activity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +8,8 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.example.ultimometro.model.Linea;
+
+import java.util.ArrayList;
 
 public class AdapterLinea extends ArrayAdapter<Linea> {
 

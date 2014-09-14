@@ -1,7 +1,5 @@
 package com.example.ultimometro;
 
-import java.util.ArrayList;
-
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -19,6 +17,8 @@ import android.widget.ListView;
 
 import com.example.ultimometro.model.DBHelper;
 import com.example.ultimometro.model.Linea;
+
+import java.util.ArrayList;
 
 public class MenuLineaActivity extends ActionBarActivity {
 
