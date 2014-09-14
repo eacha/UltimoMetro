@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -52,7 +53,6 @@ public class LineaActivity extends ActionBarActivity {
 			public void onItemClick(AdapterView<?> adapter, View view, int position,
 					long id) {
 				int idEstacion = ((Estacion)adapter.getAdapter().getItem(position)).getId();
-				
 				Intent intent = new Intent(getApplicationContext(), EstacionActivity.class);
 				intent.putExtra("ID", linea.getId()+"");
 				intent.putExtra("ESTACION", idEstacion+"");
@@ -61,7 +61,8 @@ public class LineaActivity extends ActionBarActivity {
 			}
 		
 		});
-		
+
+
 	}
 
 	@Override
@@ -76,10 +77,10 @@ public class LineaActivity extends ActionBarActivity {
 		// Handle action bar item clicks here. The action bar will
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
-		int id = item.getItemId();
-		if (id == R.id.action_settings) {
-			return true;
-		}
+		//int id = item.getItemId();
+		//if (id == R.id.action_settings) {
+		//	return true;
+		//}
 		return super.onOptionsItemSelected(item);
 	}
 

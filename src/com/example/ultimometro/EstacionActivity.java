@@ -15,7 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.ultimometro.model.DBHelper;
 import com.example.ultimometro.model.Estacion;
@@ -80,8 +79,6 @@ public class EstacionActivity extends ActionBarActivity {
 //		case R.id.action_settings:
 //			return true;
 		case R.id.menu_lineas:
-			Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT)
-	          .show();
 			openLineas();
 			return true;
 		default:
@@ -90,7 +87,6 @@ public class EstacionActivity extends ActionBarActivity {
 	}
 	
 	private void openLineas() {
-		Log.d("hola", linea.getId()+"");
 		Intent intent = new Intent(getApplicationContext(), LineaActivity.class);
 		intent.putExtra("ID", linea.getId()+"");
 		startActivity(intent);

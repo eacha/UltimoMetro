@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/LightGrey"
-    tools:context="com.example.ultimometro.MainActivity"
+    tools:context="com.example.ultimometro.MenuLineaActivity"
     tools:ignore="MergeRootFrame">
     
    <!--  <TextView 

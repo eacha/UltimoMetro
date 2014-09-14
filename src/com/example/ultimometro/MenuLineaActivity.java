@@ -20,16 +20,15 @@ import android.widget.ListView;
 import com.example.ultimometro.model.DBHelper;
 import com.example.ultimometro.model.Linea;
 
-public class MainActivity extends ActionBarActivity {
+public class MenuLineaActivity extends ActionBarActivity {
 
 	private ListView listLinea;
-//	private TextView texto;
 	private DBHelper database;
 	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_menu_linea);
 
         database = new DBHelper(this);
         ArrayList<Linea> dataLinea =  database.getArrayLineas();     
@@ -87,7 +86,7 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+            View rootView = inflater.inflate(R.layout.fragment_menu_linea, container, false);
             return rootView;
         }
     }
