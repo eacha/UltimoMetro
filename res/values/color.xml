@@ -141,4 +141,5 @@
  <color name="Navy">#000080</color>
  <color name="Black">#000000</color>
  <color name="Splash">#333333</color>
+ <color name="Font_Splash">#E6E6E6</color>
 </resources>
