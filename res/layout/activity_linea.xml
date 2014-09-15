@@ -9,8 +9,8 @@
         android:id="@+id/listLinea"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:divider="@color/Gray"
-        android:dividerHeight="2.0sp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="0.0sp"
         android:paddingRight="5dp"
         android:paddingLeft="5dp"
         android:paddingTop="10dp" />

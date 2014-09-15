@@ -14,7 +14,9 @@ import com.example.ultimometro.model.Linea;
 import java.util.ArrayList;
 
 public class AdapterEstacion extends ArrayAdapter<Estacion> {
-
+    /**
+     * Crea el menu para seleccionar la estación de una linea.
+     */
 	private Activity context;
 	private ArrayList<Estacion> data;
 	private Linea linea;

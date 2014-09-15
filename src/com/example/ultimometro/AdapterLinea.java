@@ -12,7 +12,9 @@ import com.example.ultimometro.model.Linea;
 import java.util.ArrayList;
 
 public class AdapterLinea extends ArrayAdapter<Linea> {
-
+    /**
+     * Crea el menu para seleccionar  la linea.
+     */
 	private Activity context;
 	private ArrayList<Linea> data;
 	
