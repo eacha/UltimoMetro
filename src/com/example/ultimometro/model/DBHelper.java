@@ -16,7 +16,7 @@ public class DBHelper {
 
 	private static final String TAG = "DBHelper";
 	private static final String DB_NAME = "database.db";
-
+    private static final int DB_VERSION = 1;
 	private Context context;
 
 	public DBHelper(Context context) {
@@ -30,7 +30,7 @@ public class DBHelper {
 		File dbFile = this.createDatabase();
 		return SQLiteDatabase.openDatabase(dbFile.getPath(), null, SQLiteDatabase.OPEN_READONLY);
 	}
-	
+
 	/**
 	 * Create database if not exist
 	 * @return Read/Write SQLiteDatabase
@@ -147,6 +147,13 @@ public class DBHelper {
 		this.dbFolder();
 		File dbFile = context.getDatabasePath(DB_NAME);
 
+        if (dbFile.exists()) {
+            int version =  this.getVersion();
+            if (version < this.DB_VERSION && version != this.DB_VERSION){
+                dbFile.delete();
+            }
+        }
+
 		if (!dbFile.exists()) {
 			try {
 				copyDatabase(dbFile);
@@ -154,10 +161,15 @@ public class DBHelper {
 				throw new RuntimeException("Error creating source database", e);
 			}
 		}
+
 		return dbFile;
 	}
-	
-	/**
+
+    private int getVersion() {
+        return 0;
+    }
+
+    /**
 	 * Copy a database file from assets folder to /data/data/package_name/databases
 	 * @param dbFile database file
 	 * @throws IOException
