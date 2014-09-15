@@ -14,9 +14,8 @@
 
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
-        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
-           <item name="actionBarStyle">@style/ActionBarCompat</item>
-           <item name="android:icon">@drawable/ic_logo</item>
+        <item name="actionBarStyle">@style/ActionBarCompat</item>
+        <item name="android:icon">@drawable/ic_logo</item>
     </style>
     
     <style name="ActionBarCompat" parent="@style/Widget.AppCompat.Base.ActionBar">
@@ -26,5 +25,13 @@
     <style name="titleStyle" parent="@style/TextAppearance.AppCompat.Widget.Base.ActionBar.Title">
         <item name="android:textColor">@color/White</item>
     </style>
-    
+
+    <!-- Activity without actionbar -->
+    <style name="AppThemeNoBar" parent="Theme.AppCompat.Light">
+        <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="AppThemeBar" parent="Theme.AppCompat.Light">
+        <item name="android:windowNoTitle">false</item>
+    </style>
 </resources>
