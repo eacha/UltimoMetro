@@ -1,14 +1,11 @@
 package com.example.ultimometro;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -20,32 +17,69 @@ import com.example.ultimometro.model.Linea;
 
 import java.util.ArrayList;
 
-public class MenuLineaActivity extends ActionBarActivity {
+public class MenuLineaFragment extends Fragment {
 
-	private ListView listLinea;
-	private DBHelper database;
-	
+    private FragmentActivity fragmentActivity;
+	//private ListView listLinea;
+	//private DBHelper database;
+
     @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        fragmentActivity = getActivity();
+        return inflater.inflate(R.layout.fragment_menu_linea, container, false);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        View view =  getView();
+
+        DBHelper database = new DBHelper(fragmentActivity);
+        ArrayList<Linea> dataLinea =  database.getArrayLineas();
+        assert view != null;
+        ListView listLinea = (ListView) view.findViewById(R.id.listLinea);
+
+        /* Action Bar */
+
+        AdapterLinea adapter = new AdapterLinea(fragmentActivity, dataLinea);
+        listLinea.setAdapter(adapter);
+        listLinea.setOnItemClickListener(new OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> a, View v, int position,
+                                    long id) {
+                int idLinea = ((Linea)a.getAdapter().getItem(position)).getId();
+
+                Intent intent = new Intent(fragmentActivity.getApplicationContext(), EstacionActivity.class);
+                intent.putExtra("ID", ""+idLinea);
+                intent.putExtra("ESTACION", ""+0);
+                startActivity(intent);
+            }
+        });
+
+    }
+
+    /*@Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_linea);
 
         database = new DBHelper(this);
-        ArrayList<Linea> dataLinea =  database.getArrayLineas();     
+        ArrayList<Linea> dataLinea =  database.getArrayLineas();
         listLinea = (ListView) findViewById(R.id.listLinea);
-        
+
         android.support.v7.app.ActionBar bar = getSupportActionBar();
 		bar.setBackgroundDrawable(new ColorDrawable(Color.BLACK));
 
         AdapterLinea adapter = new AdapterLinea(this, dataLinea);
-        listLinea.setAdapter(adapter);        
+        listLinea.setAdapter(adapter);
         listLinea.setOnItemClickListener(new OnItemClickListener() {
 
 			@Override
 			public void onItemClick(AdapterView<?> a, View v, int position,
 					long id) {
 				int idLinea = ((Linea)a.getAdapter().getItem(position)).getId();
-				
+
 				Intent intent = new Intent(getApplicationContext(), EstacionActivity.class);
 				intent.putExtra("ID", ""+idLinea);
 				intent.putExtra("ESTACION", ""+0);
@@ -73,12 +107,12 @@ public class MenuLineaActivity extends ActionBarActivity {
 //            return true;
 //        }
         return super.onOptionsItemSelected(item);
-    }
+    }*/
 
 	/**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    /*public static class PlaceholderFragment extends Fragment {
 
         public PlaceholderFragment() {
         }
@@ -89,5 +123,5 @@ public class MenuLineaActivity extends ActionBarActivity {
             View rootView = inflater.inflate(R.layout.fragment_menu_linea, container, false);
             return rootView;
         }
-    }
+    }*/
 }

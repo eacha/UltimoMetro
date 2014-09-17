@@ -6,11 +6,8 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
 
 import java.util.Timer;
 import java.util.TimerTask;
@@ -35,7 +32,7 @@ public class SplashActivity extends Activity {
 
                 // Start the next activity
                 Intent mainIntent = new Intent().setClass(
-                        SplashActivity.this, MenuLineaActivity.class);
+                        SplashActivity.this, MainActivity.class);
                 startActivity(mainIntent);
 
                 // Close the activity so the user won't able to go back this
@@ -80,8 +77,7 @@ public class SplashActivity extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_splash, container, false);
-            return rootView;
+            return  inflater.inflate(R.layout.fragment_splash, container, false);
         }
     }
 }
