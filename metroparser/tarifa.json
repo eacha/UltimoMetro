@@ -1,0 +1,5 @@
+[
+    {"name": "Horario Punta", "normal": "700", "estudiante": "200", "adulto_mayor": "No aplica beneficio" },
+    {"name": "Horario Valle", "normal": "640", "estudiante": "200", "adulto_mayor": "200" },
+    {"name": "Horario Bajo", "normal": "590", "estudiante": "200", "adulto_mayor": "200" }
+]

@@ -43,6 +43,15 @@ class AppDatabase():
         self.conection.commit()
         fd.close()
 
+    def add_tarifas(self, data='tarifa.json'):
+        fd = open(data, 'r')
+        tarifas = json.loads(fd.read())
+
+        self.cursor.executemany('INSERT INTO tarifa (name, normal, estudiante, adulto_mayor) '
+                                'VALUES ( :name, :normal, :estudiante, :adulto_mayor)', tarifas)
+        self.conection.commit()
+        fd.close()
+
     def add_station(self, data='horario.csv'):
         fd = open(data, 'r')
         csv_reader = csv.reader(fd, delimiter=self.delimiter)

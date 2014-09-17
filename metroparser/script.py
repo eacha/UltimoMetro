@@ -32,6 +32,7 @@ print 'Extraccion de las estaciones'
 data = AppDatabase()
 data.create_database()
 data.add_lines()
+data.add_tarifas()
 data.add_station()
 data.add_schedule(['horario.csv', 'horario_sabado.csv', 'horario_domingo.csv'])
 data.close()

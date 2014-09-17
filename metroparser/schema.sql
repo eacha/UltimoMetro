@@ -29,4 +29,11 @@ CREATE TABLE horario
   first_end INTEGER,
   last_end INTEGER);
 
+CREATE TABLE tarifa
+( id INTEGER PRIMARY KEY NOT NULL,
+  name TEXT NOT NULL,
+  normal TEXT NOT NULL,
+  estudiante TEXT NOT NULL,
+  adulto_mayor TEXT NOT NULL);
+
 
