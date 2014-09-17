@@ -29,7 +29,7 @@ e.write_to_file()
 
 print 'Extraccion de las estaciones'
 
-data = AppDatabase()
+data = AppDatabase(version=1)
 data.create_database()
 data.add_lines()
 data.add_tarifas()

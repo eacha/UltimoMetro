@@ -36,4 +36,10 @@ CREATE TABLE tarifa
   estudiante TEXT NOT NULL,
   adulto_mayor TEXT NOT NULL);
 
+CREATE TABLE version
+(
+  id INTEGER PRIMARY KEY NOT NULL,
+  number_version INTEGER NOT NULL
+);
+
 

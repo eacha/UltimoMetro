@@ -17,9 +17,10 @@ close_st = 6
 
 class AppDatabase():
 
-    def __init__(self, name='database', extension='db'):
+    def __init__(self, version=1, name='database', extension='db'):
         self.database_name = name
         self.database_extension = extension
+        self.version = version
         self.conection = sqlite3.connect(self.database_name + '.' + self.database_extension)
         self.conection.text_factory = str
         self.cursor = self.conection.cursor()
@@ -32,6 +33,7 @@ class AppDatabase():
         fd = open(schema, 'r')
         script = fd.read()
         self.cursor.executescript(script)
+        self.cursor.execute('INSERT INTO version (number_version) VALUES ( ? )', (self.version,))
         fd.close()
 
     def add_lines(self, data='lineas.json'):
